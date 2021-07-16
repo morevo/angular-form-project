@@ -1,0 +1,89 @@
+<div class="container">
+  <form class="form" [formGroup]="formGroupControl">
+    <div class="form__fullname">
+      <div class="firstname">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label for="name">Name</mat-label>
+        <input type="text" id="name" formControlName="firstName" required matInput />
+      </mat-form-field>
+      </div>
+      <div class="lastname">
+        <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label for="surname">Surname</mat-label>
+        <input type="text" id="surname" formControlName="lastName" required matInput />
+      </mat-form-field>
+      </div>
+  </div>
+  <div class="datepicker">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Choose birthday</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="dateOfBirth" required/>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker touchUi #picker></mat-datepicker>
+    </mat-form-field>
+  </div>
+    
+  <div class="framework">
+    <div class="framework__item">
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label for="framework">Framework</mat-label>
+    <mat-select formControlName="framework" ngModel (ngModelChange)="getValueFramework($event)" required>
+      <mat-option *ngFor="let framework of frameworks" [value]="framework">{{framework.title}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<div class="framework__item">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label for="framework-ver">Version</mat-label>
+      <mat-select formControlName="version" required>
+      <mat-option [disabled]="disabled" *ngFor="let version of versions" [value]="version">{{version.title}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  </div>
+</div>
+
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label for="email">Email</mat-label>
+    <input matInput type="text" id="email" formControlName="email" ngModel [email]="true" required />
+  </mat-form-field>
+
+ 
+  <mat-fieldset class="hobby" formGroupName="hobby"> <!-- ** -->
+    <div class="hobby__inner">
+      <div class="hobby__item">
+    <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label for="hobby">Hobby name</mat-label>
+        <input matInput type="text" formControlName="name" required placeholder="Name">
+      </mat-form-field>
+    </div>
+      <div class="hobby__item">
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label for="hobby">Duration</mat-label>
+        <input matInput type="text" formControlName="duration" required placeholder="Duration" >
+      </mat-form-field>
+      </div>
+    </div>
+    <div class="hobby__inner">
+      <div class="hobby__item">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label for="hobby">Hobby name</mat-label>
+        <input matInput type="text" formControlName="nameTwo" placeholder="Name">
+      </mat-form-field>
+    </div>
+    <div class="hobby__item">
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label for="hobby">Duration</mat-label>
+        <input matInput type="text" formControlName="durationTwo" placeholder="Duration">
+      </mat-form-field>
+      </div>
+    </div>
+    <div class="button">
+      <button class="btn" type="submit">Send</button>
+    </div>
+    
+    <div class="result">
+      <h4>Result</h4>
+      <pre>{{title}}</pre>
+    </div>
+      </mat-fieldset>
+</form>

@@ -1,0 +1,114 @@
+.container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .form__fullname {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .form__firstname {
+    padding: 1rem;
+  }
+
+  .datepicker {
+    display: flex;
+  }
+
+  .framework {
+    display: flex;
+
+    .framework__item {
+      padding: 0.5rem;
+    }
+  }
+
+  .hobby {
+    .hobby__inner {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .hobby__item {
+        padding: 0.5rem;
+      }
+    }
+    .button {
+      padding: 1rem 1rem;
+      display: flex;
+      justify-content: center;
+
+      .btn {
+        background: #26a69a;
+        color: #fff;
+        text-align: center;
+        padding: 0.5rem 1.5rem;
+        border: none;
+        border-radius: 5px;
+        font-size: 1.3rem;
+        font-weight: 600;
+        cursor: pointer;
+
+        &:hover {
+          background: rgba(38, 166, 154, 0.7);
+        }
+
+        &:active {
+          background: #26a69a;
+        }
+      }
+    }
+
+    .result {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+      width: 100%;
+
+      h4 {
+        font-size: 1em;
+        text-transform: uppercase;
+      }
+
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        text-align: center;
+        font-size: 1em;
+      }
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .result pre {
+    width: 400px;
+  }
+}
+
+@media (max-width: 400px) {
+  .framework {
+    flex-direction: column;
+  }
+
+  .hobby__inner {
+    flex-direction: column;
+  }
+
+  .result pre {
+    width: 200px;
+  }
+}
